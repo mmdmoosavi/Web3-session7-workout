@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>set Timeout Example</title>
+    <style>
+        *{
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            box-sizing:border-box;
+            margin:0;
+            padding:0;
+            list-style:none;
+            border-radius:15px;
+        }
+        #container{
+            position:fixed;
+            top:50px;
+            left:50px;
+        }
+        button{
+            width:100px;
+            height:65px;
+            padding:5px;
+            font-size:25px;
+            font-weight:700;
+            color:white;
+            background-color:blue;
+            box-shadow:#eaeaea 5px 5px 6px 7px;
+        }
+        #menuContainer{
+            display:none;
+            background-color:gray;
+            color:#fff;
+            padding:10px;
+            margin-left:50px;
+            margin-top:20px;
+        }
+    </style>
+</head>
+<body>
+    <div id = 'container'>
+        <button onmouseenter = "showMenu(event)" onmouseleave = "hideMenu(event)" onmousemove = 'hideLess(event)'> menu </button>
+        <div id = 'menuContainer' onmouseleave = 'hideThis(this,event)'>
+            <ul id = 'menu'>
+                <li>Products</li>
+                <li>Contact Us</li>
+                <li>Creative Ideas</li>
+                <li>Address</li>
+                <li>Companies</li>
+                <li>Career Opportunities</li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        let showMenu =(e)=>{
+            document.querySelector('#menuContainer').style.display = 'block';
+        }
+        let hideMenu = (e)=> setTimeout(function(){
+            if(e.offsetX > 70){
+                document.querySelector('#menuContainer').style.display = 'none';
+            } else {
+                document.querySelector('#menuContainer').style.display = 'block';
+            }
+        } , 2000);
+        let hideLess = (e)=>{
+            if(e.offsetX > 49 && e.offsetY > 0){
+                document.querySelector('#menuContainer').style.display = 'block';
+            } else {
+                document.querySelector('#menuContainer').style.display = 'none';
+            }
+        
+        }
+        let hideThis = (element,e) =>setTimeout(function(){
+            if(e.offsetX > 190){
+                console.log(e.offsetX);
+                document.querySelector('#menuContainer').display = 'none';
+            } else if(e.offsetX<100 && e.offsetY<0){
+                document.querySelector('#menuContainer').display = 'block';
+            } else {
+                document.querySelector('#menuContainer').style.display = 'block';
+            }
+        } , 3000);
+    
+    </script>
+</body>
+</html>
