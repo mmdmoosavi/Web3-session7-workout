@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>table th , table td{border-collapse:collapse;text-align:center;background-color:'black';color:'white';}</style>
+</head>
+<body>
+    <span>Enter your stundent name : <input type = "text"> age : <input type = "number"> height : <input type = "number"> <button onclick = 'tmaker()'>click me</button></span>
+    <script>
+        let tmaker = ()=>{
+            let tableMaker = document.createElement("table");
+            tableMaker.style.borderCollapse = 'collapse';
+            tableMaker.style.marginBottom = '10px';
+            let thead = document.createElement('thead');
+            let th = document.createElement('th');
+            th.style.border = '1px solid red';
+            let thTwo = document.createElement('th');
+            thTwo.style.border = '1px solid red';
+            let thThree = document.createElement('th');
+            thThree.style.border = '1px solid red';
+            let tbody = document.createElement('tbody');
+            let tdOne = document.createElement('td');
+            tdOne.style.border = '1px solid red';
+            let tdTwo = document.createElement('td');
+            tdTwo.style.border = '1px solid red';
+            let tdThree = document.createElement('td');
+            tdThree.style.border = '1px solid red';
+            let textNode = document.createTextNode('name');
+            let textNode2 = document.createTextNode('age');
+            let textNode3 = document.createTextNode('height');
+            let textNode4 = document.createTextNode(document.getElementsByTagName('input')[0].value);
+            let textNode5 = document.createTextNode(document.getElementsByTagName('input')[1].value);
+            let textNode6 = document.createTextNode(document.getElementsByTagName('input')[2].value);
+            th.appendChild(textNode);
+            thTwo.appendChild(textNode2);
+            thThree.appendChild(textNode3);
+            thead.appendChild(th);
+            thead.appendChild(thTwo);
+            thead.appendChild(thThree);
+            tableMaker.appendChild(thead);
+            tdOne.appendChild(textNode4);
+            tdTwo.appendChild(textNode5);
+            tdThree.appendChild(textNode6);
+            tbody.append(tdOne);
+            tbody.append(tdTwo);
+            tbody.append(tdThree);
+            tableMaker.append(tbody);
+            document.querySelector('body').appendChild(tableMaker);
+            
+        }
+    
+    </script>
+</body>
+</html>
