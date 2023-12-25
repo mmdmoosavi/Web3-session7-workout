@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>set Timeout Example</title>
+    <style>
+        *{
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            box-sizing:border-box;
+            margin:0;
+            padding:0;
+            list-style:none;
+            border-radius:15px;
+        }
+        #container{
+            position:fixed;
+            top:50px;
+            left:50px;
+        }
+        button{
+            width:100px;
+            height:65px;
+            padding:5px;
+            font-size:25px;
+            font-weight:700;
+            color:white;
+            background-color:blue;
+            box-shadow: #6f7a81 6px 6px 16px 1px;
+        }
+        #menuContainer{
+            display:block;
+            opacity:0;
+            background-color:gray;
+            color:#fff;
+            padding:10px;
+            margin-left:50px;
+            margin-top:20px;
+            box-shadow: #6f7a81 6px 6px 16px 1px;
+            transition:all 0.8s;
+        }
+    </style>
+</head>
+<body>
+    <div id = 'container'>
+        <button onmouseenter = "showMenu(event);clearTimeout(hmtimer1);" onmouseleave = "hmtimer = setTimeout(hideMenu , 1000)"> menu </button>
+        <div id = 'menuContainer' onmouseenter = 'clearTimeout(hmtimer)' onmouseleave = 'hmtimer1 = setTimeout(hideMenu , 2000)'>
+            <ul id = 'menu'>
+                <li>Products</li>
+                <li>Contact Us</li>
+                <li>Creative Ideas</li>
+                <li>Address</li>
+                <li>Companies</li>
+                <li>Career Opportunities</li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        document.getElementsByTagName('body')[0].style.background = 'skyblue';
+        let showMenu = ()=>{
+            document.querySelector('#menuContainer').style.opacity = 1;
+        }
+        let hideMenu = ()=>{
+            document.querySelector('#menuContainer').style.opacity = 0;
+        }
+    </script>
+</body>
+</html>
